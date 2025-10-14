@@ -38,17 +38,16 @@ public class Print {
     }
 
 
-    public void printKeyList(int i){
-        System.out.print("번호: " + i + ", ");
-    }
     // 리스트 전용 출력
-    public void printTitleList(ArrayList<Post> list, int i){
-        System.out.println("제목: "+list.get(i).getTitle());
+    public void printPostSummary(Post post){
+        System.out.println("====================================");
+        System.out.print("번호: "+ post.getId()+", ");
+        System.out.println("제목: " + post.getTitle());
+        System.out.println("내용: "+ post.getContent());
+        System.out.println("====================================");
     }
 
-    public void printContentList(ArrayList<Post> list, int i){
-        System.out.println("내용: " + list.get(i).getContent());
-    }
+    
     // 조회 전용 출력, 제목
     public void printTitle(String title){
         System.out.println("제목: "+ title);
@@ -116,4 +115,9 @@ public class Print {
     public void printIncorrectInput(){
         System.out.println("잘못된 입력입니다. 정확한 메뉴를 입력하세요.");
     }
+    // Scanner 버퍼 지우기
+    public void clearScannerBuffer() {
+        scanner.nextLine();
+    }
+
 }

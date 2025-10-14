@@ -41,7 +41,7 @@ public class Memory implements BoardRepository {
 
     // map 내 저장 값 복사본으로 반환
     @Override
-    public java.util.List<Post> findAll() {
+    public List<Post> findAll() {
         List list = new ArrayList<>(map.values());
         Comparator<Post> comparator = new Comparator<Post>() {
             @Override

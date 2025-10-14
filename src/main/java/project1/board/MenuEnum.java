@@ -3,7 +3,7 @@ package project1.board;
 public enum MenuEnum {
 
     ADD (new Add()),
-    LIST(new List()),
+    LIST(new BoardList()),
     DETAIL(new Detail()),
     UPDATE(new Update()),
     DELETE(new Delete()),

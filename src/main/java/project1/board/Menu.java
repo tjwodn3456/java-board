@@ -1,8 +1,13 @@
 package project1.board;
 
 public class Menu {
-    Print pr = new Print();
-    Logic lg = new Logic(new Memory());
+    private final Print pr;
+    private final Logic lg;
+
+    public Menu(Print pr, Logic lg){
+        this.pr = pr;
+        this.lg = lg;
+    }
 
     public void runMenu(){
         MenuEnum menu = null;
