@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.List;
 
 public class Memory implements BoardRepository {
-    private static Map<Integer, Post> map = new HashMap<>();
-    private static int key=0;
+    private Map<Integer, Post> map = new HashMap<>();
+    private int key=0;
 
     public Post save(String title, String content) {
         key++;

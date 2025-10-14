@@ -16,6 +16,7 @@ public class Delete implements Board{
             }
         }catch (InputMismatchException e){
             System.out.println("숫자를 입력하세요.");
+            pr.clearScannerBuffer();
         }
 
     }

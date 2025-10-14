@@ -9,8 +9,9 @@ public class Detail implements Board{
         try {
             int id = pr.printAskNumberDetail();
             if (lg.isExitContent(id)) {
-                String title = lg.findPost(id).getTitle();
-                String content = lg.findPost(id).getContent();
+                Post foundPost = lg.findPost(id);
+                String title = foundPost.getTitle();
+                String content = foundPost.getContent();
                 pr.printTitle(title);
                 pr.printContent(content);
                 System.out.println();
