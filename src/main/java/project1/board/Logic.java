@@ -3,7 +3,12 @@ package project1.board;
 import java.util.List;
 
 public class Logic {
-    BoardRepository reposit = new Memory();
+    private final BoardRepository reposit;
+
+
+    public Logic(BoardRepository boardRepository) {
+        this.reposit = boardRepository;
+    }
 
     // 게시글 추가
     public void addNewPost(String title, String content){
@@ -23,7 +28,7 @@ public class Logic {
     // 게시글 수정
     public void updatePost(int id, String title, String content) {
         reposit.updateTitle(id, title);
-        reposit.updateTitle(id, content);
+        reposit.updateContent(id, content);
     }
 
     // 게시글 찾기

@@ -2,7 +2,7 @@ package project1.board;
 
 public class Menu {
     Print pr = new Print();
-    Logic lg = new Logic();
+    Logic lg = new Logic(new Memory());
 
     public void runMenu(){
         MenuEnum menu = null;

@@ -1,5 +1,6 @@
 package project1.board;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Print {
@@ -40,15 +41,22 @@ public class Print {
     public void printKeyList(int i){
         System.out.print("번호: " + i + ", ");
     }
+    // 리스트 전용 출력
+    public void printTitleList(ArrayList<Post> list, int i){
+        System.out.println("제목: "+list.get(i).getTitle());
+    }
 
- //   public void printTitleList(int i){
-  //      System.out.println("제목: "+Post.getMap().get(i).getTitle());
-   // }
-
-    //public void printContentList(int i){
-    //    System.out.print("내용: " + Post.getMap().get(i).getContent());
-   // }
-
+    public void printContentList(ArrayList<Post> list, int i){
+        System.out.println("내용: " + list.get(i).getContent());
+    }
+    // 조회 전용 출력, 제목
+    public void printTitle(String title){
+        System.out.println("제목: "+ title);
+    }
+    // 조회 전용 출력, 내용
+    public void printContent(String content){
+        System.out.print("내용: " + content);
+    }
 
     public void printRegistryTitle(String title){
         System.out.println(title);

@@ -7,10 +7,12 @@ public class Detail implements Board{
     @Override
     public void execute(Print pr, Logic lg) {
         try {
-            int num = pr.printAskNumberDetail();
-            if (lg.isExitContent(num)) {
-                pr.printTitleList(num);
-                pr.printContentList(num);
+            int id = pr.printAskNumberDetail();
+            if (lg.isExitContent(id)) {
+                String title = lg.findPost(id).getTitle();
+                String content = lg.findPost(id).getContent();
+                pr.printTitle(title);
+                pr.printContent(content);
                 System.out.println();
                 System.out.println();
             } else {
