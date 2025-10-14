@@ -7,9 +7,9 @@ public class Delete implements Board{
     @Override
     public void execute(Print pr, Logic lg) {
         try {
-            int num = pr.printAskNumberDelete();
-            if (lg.isExitContent(num)) {
-                lg.deletePost(num);
+            int id = pr.printAskNumberDelete();
+            if (lg.isExitContent(id)) {
+                lg.deletePost(id);
                 pr.printSuccessDelete();
             } else {
                 pr.printNotFind();

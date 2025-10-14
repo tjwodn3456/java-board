@@ -11,7 +11,6 @@ public class Menu {
             MenuEnum selectedMenu = MenuEnum.fromString(input);
             if (selectedMenu != null) {
                 selectedMenu.execute(pr, lg);
-
                 if (selectedMenu == MenuEnum.EXIT) {
                     return;
                 }

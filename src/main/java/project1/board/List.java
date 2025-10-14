@@ -6,10 +6,11 @@ public class List implements Board {
 
     @Override
     public void execute(Print pr, Logic lg) {
-        HashMap<Integer, Post> newMap = new HashMap<>(Post.getMap());
-        for (int i = 1; i < newMap.size()+1; i++) {
-            pr.printKeyList(i);
-            pr.printTitleList(i);
+        for (int i = 1; i < Post.getKey(); i++) {
+            if (lg.isExitContent(i)) {
+                pr.printKeyList(i);
+                pr.printTitleList(i);
+            }
         }
         System.out.println();
     }

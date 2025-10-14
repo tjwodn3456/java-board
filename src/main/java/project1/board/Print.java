@@ -41,13 +41,13 @@ public class Print {
         System.out.print("번호: " + i + ", ");
     }
 
-    public void printTitleList(int i){
-        System.out.println("제목: "+Post.getMap().get(i).getTitle());
-    }
+ //   public void printTitleList(int i){
+  //      System.out.println("제목: "+Post.getMap().get(i).getTitle());
+   // }
 
-    public void printContentList(int i){
-        System.out.print("내용: " + Post.getMap().get(i).getContent());
-    }
+    //public void printContentList(int i){
+    //    System.out.print("내용: " + Post.getMap().get(i).getContent());
+   // }
 
 
     public void printRegistryTitle(String title){

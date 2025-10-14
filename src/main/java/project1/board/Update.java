@@ -7,12 +7,12 @@ public class Update implements Board{
     @Override
     public void execute(Print pr, Logic lg) {
         try {
-            int num = pr.printAskNumberUpdate();
-            if (lg.isExitContent(num)) {
-                Post post = lg.findPost(num);
+            int id = pr.printAskNumberUpdate();
+            if (lg.isExitContent(id)) {
+                Post post = lg.findPost(id);
                 String newTitle = pr.printAskUpdateTitle();
                 String newContent = pr.printAskUpdateContent();
-                lg.updatePost(post, newTitle, newContent);
+                lg.updatePost(id, newTitle, newContent);
                 pr.printSuccessUpdate();
             } else {
                 pr.printNotFind();
