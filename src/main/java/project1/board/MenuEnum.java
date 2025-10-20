@@ -9,9 +9,9 @@ public enum MenuEnum {
     DELETE(new Delete()),
     EXIT(new Exit());
 
-    private Board board;
+    private MenuAction board;
 
-    MenuEnum (Board board){
+    MenuEnum (MenuAction board){
         this.board = board;
     }
 

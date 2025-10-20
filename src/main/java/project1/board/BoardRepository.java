@@ -5,7 +5,7 @@ import java.util.List;
 public interface BoardRepository {
     
     // 저장
-    Post save(String title, String content);
+    Post save(Post post);
     
     // 삭제
     public void deleteContent(int id);

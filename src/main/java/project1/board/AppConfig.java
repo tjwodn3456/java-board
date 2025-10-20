@@ -3,7 +3,7 @@ package project1.board;
 public class AppConfig {
 
     public BoardRepository boardRepository(){
-        return new Memory();
+        return new JdbcMemory();
     }
 
     public Logic logic(){

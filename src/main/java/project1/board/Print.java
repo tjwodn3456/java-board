@@ -1,6 +1,5 @@
 package project1.board;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Print {
@@ -41,7 +40,7 @@ public class Print {
     // 리스트 전용 출력
     public void printPostSummary(Post post){
         System.out.println("====================================");
-        System.out.print("번호: "+ post.getId()+", ");
+        System.out.print("번호: "+ post.getPostId()+", ");
         System.out.println("제목: " + post.getTitle());
         System.out.println("내용: "+ post.getContent());
         System.out.println("====================================");
@@ -112,7 +111,7 @@ public class Print {
         System.out.println("프로그램을 종료 합니다.");
     }
 
-    public void printIncorrectInput(){
+    public void printIncorrectMenu(){
         System.out.println("잘못된 입력입니다. 정확한 메뉴를 입력하세요.");
     }
     // Scanner 버퍼 지우기

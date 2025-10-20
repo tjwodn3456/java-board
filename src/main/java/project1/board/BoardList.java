@@ -2,10 +2,10 @@ package project1.board;
 
 import java.util.List;
 
-public class BoardList implements Board {
+public class BoardList implements MenuAction {
 
     @Override
-    public void execute(Print pr, Logic lg) {
+    public ActionResult execute(Print pr, Logic lg) {
         List<Post> posts = lg.makeList();
         if (posts.isEmpty()) {
             pr.printNoPost();

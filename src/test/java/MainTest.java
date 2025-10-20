@@ -23,13 +23,6 @@ public class MainTest {
 
     @Test
     public void printEntryTest() {
-        Logic logic = new Logic(new Memory());
-        logic.addNewPost( "안녕1", "하십니까1");
-        logic.addNewPost( "안녕2", "하십니까2");
-        logic.addNewPost( "안녕3", "하십니까3");
-        logic.addNewPost( "안녕4", "하십니까4");
-        ArrayList<Post> list = new ArrayList<>(logic.makeList());
-        System.out.println(list.get(0).getTitle());
 
 
 

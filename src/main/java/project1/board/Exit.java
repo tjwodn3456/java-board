@@ -1,8 +1,8 @@
 package project1.board;
 
-public class Exit implements Board {
+public class Exit implements MenuAction {
     @Override
-    public void execute(Print pr, Logic lg) {
+    public ActionResult execute(Print pr, Logic lg) {
         pr.printExit();
     }
 }

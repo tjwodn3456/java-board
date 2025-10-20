@@ -2,10 +2,10 @@ package project1.board;
 
 import java.util.InputMismatchException;
 
-public class Update implements Board{
+public class Update implements MenuAction {
 
     @Override
-    public void execute(Print pr, Logic lg) {
+    public ActionResult execute(Print pr, Logic lg) {
         try {
             int id = pr.printAskNumberUpdate();
             if (lg.isExitContent(id)) {
@@ -14,12 +14,15 @@ public class Update implements Board{
                 String newContent = pr.printAskUpdateContent();
                 lg.updatePost(id, newTitle, newContent);
                 pr.printSuccessUpdate();
+                return ActionResult.SUCCESS;
             } else {
                 pr.printNotFind();
+                return ActionResult.FAILURE;
             }
         }catch (InputMismatchException e){
             System.out.println("숫자를 입력하세요.");
             pr.clearScannerBuffer();
+            return ActionResult.FAILURE;
         }
     }
 }

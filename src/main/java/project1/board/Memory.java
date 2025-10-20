@@ -7,10 +7,9 @@ public class Memory implements BoardRepository {
     private Map<Integer, Post> map = new HashMap<>();
     private int key=0;
 
-    public Post save(String title, String content) {
+    public Post save(Post post) {
         key++;
-        int newId = key;
-        Post post = new Post(newId, title, content);
+        post.setPostId(key);
         map.put(key, post);
         return post;
     }
@@ -46,7 +45,7 @@ public class Memory implements BoardRepository {
         Comparator<Post> comparator = new Comparator<Post>() {
             @Override
             public int compare(Post o1, Post o2) {
-                return o1.getId() - o2.getId();
+                return o1.getPostId() - o2.getPostId();
             }
         };
         Collections.sort(list, comparator);
@@ -60,7 +59,9 @@ public class Memory implements BoardRepository {
     }
 
     // key 값 반환
-    public static int getKey() {
+    public int getKey() {
         return key;
     }
+
+
 }

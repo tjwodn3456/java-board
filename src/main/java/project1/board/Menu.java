@@ -20,7 +20,7 @@ public class Menu {
                     return;
                 }
             } else {
-                pr.printIncorrectInput();
+                pr.printIncorrectMenu();
             }
         }
     }
