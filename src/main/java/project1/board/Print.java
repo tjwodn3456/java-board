@@ -1,6 +1,8 @@
 package project1.board;
 
 
+import java.util.List;
+
 public class Print {
 
     public void askLoginHow(){
@@ -35,7 +37,8 @@ public class Print {
     }
 
     public void printTodo (){
-        System.out.print("명령어를 입력하세요 (add, list, authorList ,detail, update, delete, exit): ");
+        System.out.println("| Add, List, AuthorList, CountPostsByUsers, Detail, Update, Delete, Exit |");
+        System.out.print("명령어를 입력하세요: ");
     }
 
     public void printNoPost(){
@@ -66,24 +69,31 @@ public class Print {
     // 디테일 리스트 전용 출력
     public void printPostSummary(Post post){
         System.out.println("====================================");
-        System.out.print("번호: "+ post.getPostId()+", ");
-        System.out.println("제목: " + post.getTitle());
-        System.out.println("내용: "+ post.getContent());
-        System.out.println("작성 일자: "+ post.getCreateAt());
+        System.out.print("번호 : "+ post.getPostId()+", ");
+        System.out.println("제목 : " + post.getTitle());
+        System.out.println("내용 : "+ post.getContent());
+        System.out.println("작성 일자 : "+ post.getCreateAt());
         System.out.println("====================================");
     }
 
     // 작성자 리스트 전용 출력
     public void printPostSummary(PostListItemDto dto){
         System.out.println("====================================");
-        System.out.print("번호: "+ dto.getPostId()+", ");
-        System.out.println("제목: " + dto.getTitle());
-        System.out.println("작성자 닉네임: "+ dto.getNickName());
-        System.out.println("작성 일자: "+ dto.getCreatedAt());
+        System.out.print("번호 : "+ dto.getPostId()+", ");
+        System.out.println("제목 : " + dto.getTitle());
+        System.out.println("작성자 닉네임 : "+ dto.getNickName());
+        System.out.println("작성 일자 : "+ dto.getCreatedAt());
         System.out.println("====================================");
     }
 
-    
+    //
+    public void printCountPostsByUsers(UserPostCountDto dto){
+        System.out.println("====================================");
+        System.out.println("작성자 닉네임 : "+ dto.getNickName());
+        System.out.println("게시글 작성 수 : "+ dto.getPostCount());
+        System.out.println("====================================");
+    }
+
     // 조회 전용 출력, 제목
     public void printTitle(String title){
         System.out.println("제목: "+ title);

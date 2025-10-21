@@ -5,6 +5,7 @@ public enum PublicMenuEnum {
 
     LIST(new BoardList()),
     AUTHORLIST(new AuthorList()),
+    COUNTPOSTSBYUSERS(new CountPostByUsers()),
     DETAIL(new Detail()),
     EXIT(new Exit());
 

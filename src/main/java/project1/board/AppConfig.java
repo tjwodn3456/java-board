@@ -2,7 +2,7 @@ package project1.board;
 
 public class AppConfig {
 
-    public BoardRepository boardRepository(){
+    public PostRepository boardRepository(){
         return new JdbcMemory();
     }
 

@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcMemory implements BoardRepository{
+public class JdbcMemory implements PostRepository{
 
     private Connection getConnection() {
         try {
@@ -188,6 +188,34 @@ public class JdbcMemory implements BoardRepository{
             throw new IllegalStateException("게시글 목록 조회 중 예외 발생",e);
         }
         return postList;
+    }
+    @Override
+    public List<UserPostCountDto> countUserPosts(){
+        String sql = "SELECT " +
+                "u.nick_name, " +
+                "COUNT(p.post_id) AS post_count " +
+                "FROM users u " +
+                "LEFT JOIN posts p ON u.id = p.user_id " +
+                "GROUP BY u.id " +
+                "ORDER BY post_count DESC, u.nick_name";
+
+        List<UserPostCountDto> userPostCounts = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                UserPostCountDto dto = new UserPostCountDto();
+
+                dto.setNickName(rs.getString("nick_name"));
+                dto.setPostCount(rs.getInt("post_count"));
+                userPostCounts.add(dto);
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException("게시글 카운트 중 오류 발생.", e);
+        }
+        return userPostCounts;
     }
 
     @Override

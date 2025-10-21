@@ -2,7 +2,7 @@ package project1.board;
 
 import java.util.List;
 
-public interface BoardRepository {
+public interface PostRepository {
     
     // 저장
     Post save(Post post);
@@ -22,7 +22,11 @@ public interface BoardRepository {
     // id 값으로 Post 존재 여부 확인
     boolean existById(int id);
 
+    // 작성자 리스트 생성
     public List<PostListItemDto> findAllWithAuthor();
+
+    // 작성자별 게시글 작성 수 리스트 생성
+    public List<UserPostCountDto> countUserPosts();
 
     // map 내 저장 값 복사본으로 반환
     public List<Post> findAll();

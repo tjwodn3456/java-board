@@ -3,7 +3,7 @@ package project1.board;
 import java.util.*;
 import java.util.List;
 
-public class Memory implements BoardRepository {
+public class Memory implements PostRepository {
     private Map<Integer, Post> map = new HashMap<>();
     private int key=0;
 
@@ -68,5 +68,8 @@ public class Memory implements BoardRepository {
         return key;
     }
 
-
+    @Override
+    public List<UserPostCountDto> countUserPosts() {
+        return List.of();
+    }
 }
