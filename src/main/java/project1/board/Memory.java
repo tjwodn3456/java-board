@@ -52,6 +52,11 @@ public class Memory implements BoardRepository {
         return list;
     }
 
+    @Override
+    public List<PostListItemDto> findAllWithAuthor() {
+        return List.of();
+    }
+
     // 존재 여부 확인
     @Override
     public boolean existById(int id) {

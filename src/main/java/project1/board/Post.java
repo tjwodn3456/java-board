@@ -11,9 +11,10 @@ public class Post {
     private Timestamp createAt;
 
 
-    public Post(String title, String content) {
+    public Post(String title, String content, int userId) {
         this.title = title;
         this.content = content;
+        this.userId = userId;
     }
 
     public Post(int id, String title, String content) {

@@ -1,17 +1,17 @@
 package project1.board;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BoardList implements PublicMenuAction {
-
+public class AuthorList implements PublicMenuAction {
     @Override
     public ActionResult execute(Print pr, Logic lg, InputReader inputReader) {
-        List<Post> posts = lg.detailMakeList();
-        if (posts.isEmpty()) {
+        List<PostListItemDto> postList = lg.authorMakeList();
+        if (postList.isEmpty()) {
             pr.printNoPost();
         }
-        for (Post post : posts) {
-            pr.printPostSummary(post);
+        for (PostListItemDto dto : postList) {
+            pr.printPostSummary(dto);
         }
         System.out.println();
         return ActionResult.SUCCESS;

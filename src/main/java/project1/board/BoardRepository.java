@@ -22,6 +22,7 @@ public interface BoardRepository {
     // id 값으로 Post 존재 여부 확인
     boolean existById(int id);
 
+    public List<PostListItemDto> findAllWithAuthor();
 
     // map 내 저장 값 복사본으로 반환
     public List<Post> findAll();

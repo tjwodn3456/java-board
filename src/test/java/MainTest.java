@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
 import project1.board.*;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-
 public class MainTest {
 
 
@@ -22,10 +19,23 @@ public class MainTest {
     }
 
     @Test
-    public void printEntryTest() {
-
+    public void LoginTest() {
+        AppConfig appConfig = new AppConfig();
+        Logic lg = appConfig.logic();
+        lg.newUser("tj", "1234");
+        Login login = new Login();
+        User loginUser =login.execute(appConfig.print(), appConfig.logic());
+        lg.addNewPost("a", "b", loginUser.getUserId());
 
 
 
     }
+    @Test
+    public void TypeMain() {
+        System.out.println(TypeTest().getClass().getName());
+    }
+
+    public Object TypeTest () {
+        String input = "s";
+        return Integer.parseInt(input);}
 }

@@ -1,12 +1,14 @@
 package project1.board;
 
-public class Add implements MenuAction {
+public class Add implements AuthenticatedAction {
 
     @Override
-    public ActionResult execute(Print pr, Logic lg) {
-        String title = pr.printAskTitle();
-        String content = pr.printAskContent();
-        lg.addNewPost(title, content);
+    public ActionResult execute(Print pr, Logic lg, User user, InputReader inputReader) {
+        pr.printAskTitle();
+        String title = inputReader.getValidStringInput();
+        pr.printAskContent();
+        String content = inputReader.getValidStringInput();
+        lg.addNewPost(title, content, user.getUserId());
         pr.printSuccessRegist();
         return ActionResult.SUCCESS;
     }

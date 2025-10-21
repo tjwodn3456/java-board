@@ -44,8 +44,8 @@ public class Logic {
 
 
     // 게시글 추가
-    public void addNewPost(String title, String content){
-        Post post = new Post(title, content);
+    public void addNewPost(String title, String content, int userId){
+        Post post = new Post(title, content, userId);
         boardRepository.save(post);
     }
 
@@ -54,10 +54,15 @@ public class Logic {
         return super.toString();
     }
 
-    // 리스트 생성
-    public List<Post> makeList(){
+    // 디테일 리스트 생성
+    public List<Post> detailMakeList(){
         return boardRepository.findAll();
     }
+    // 디테일 리스트 생성
+    public List<PostListItemDto> authorMakeList(){
+        return boardRepository.findAllWithAuthor();
+    }
+
 
     // 게시글 수정
     public void updatePost(int id, String title, String content) {

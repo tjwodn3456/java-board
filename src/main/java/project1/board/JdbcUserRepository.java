@@ -22,15 +22,16 @@ public class JdbcUserRepository implements UserRepository {
         String sql = "INSERT INTO users (login_id, password, nick_name) VALUES (?,?,?)";
 
         try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setString(1, user.getLoginId());
             pstmt.setString(2, user.getPassword());
             pstmt.setString(3, user.getNickName());
+            pstmt.executeUpdate();
 
             try(ResultSet rs = pstmt.getGeneratedKeys()) {
                 if (rs.next()) {
-                    user.setId(rs.getInt(1));
+                    user.setUserId(rs.getInt(1));
                     return user;
                 } else {
                     throw new SQLException("사용자 ID 조회 실패");
@@ -53,7 +54,7 @@ public class JdbcUserRepository implements UserRepository {
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     User user = new User();
-                    user.setId(rs.getInt("id"));
+                    user.setUserId(rs.getInt("id"));
                     user.setLoginId(rs.getString("login_id"));
                     user.setPassword(rs.getString("password"));
                     user.setNickName(rs.getString("nick_name"));

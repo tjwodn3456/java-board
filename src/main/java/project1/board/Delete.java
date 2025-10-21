@@ -1,24 +1,23 @@
 package project1.board;
 
-import java.util.InputMismatchException;
-
-public class Delete implements MenuAction {
+public class Delete implements AuthenticatedAction {
 
     @Override
-    public ActionResult execute(Print pr, Logic lg) {
-        try {
-            int id = pr.printAskNumberDelete();
-            if (lg.isExitContent(id)) {
+    public ActionResult execute(Print pr, Logic lg, User user, InputReader inputReader) {
+        pr.printAskNumberDelete();
+        int id = inputReader.getValidIntegerInput();
+        if (lg.isExitContent(id)) {
+            Post deletPost = lg.findPost(id);
+            if (deletPost.getUserId() == user.getUserId()) {
                 lg.deletePost(id);
                 pr.printSuccessDelete();
                 return ActionResult.SUCCESS;
             } else {
-                pr.printNotFind();
+                pr.notYourPost();
                 return ActionResult.FAILURE;
             }
-        }catch (InputMismatchException e){
-            System.out.println("숫자를 입력하세요.");
-            pr.clearScannerBuffer();
+        } else {
+            pr.printNotFind();
             return ActionResult.FAILURE;
         }
     }

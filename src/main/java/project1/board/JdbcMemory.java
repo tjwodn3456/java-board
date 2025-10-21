@@ -162,6 +162,35 @@ public class JdbcMemory implements BoardRepository{
     }
 
     @Override
+    public List<PostListItemDto> findAllWithAuthor() {
+        String sql = "SELECT p.post_id, p.title, u.nick_name , p.created_at " +
+                     "FROM posts p " +
+                     "JOIN users u ON p.user_id = u.id " +
+                     "ORDER BY p.user_id DESC";
+
+        List<PostListItemDto> postList = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                PostListItemDto dto = new PostListItemDto();
+
+                dto.setPostId(rs.getInt("post_id"));
+                dto.setTitle(rs.getString("title"));
+                dto.setNickName(rs.getString("nick_name"));
+                dto.setCreatedAt(rs.getTimestamp("created_at"));
+
+                postList.add(dto);
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException("게시글 목록 조회 중 예외 발생",e);
+        }
+        return postList;
+    }
+
+    @Override
     public boolean existById(int postId) {
         return findPost(postId) != null;
     }

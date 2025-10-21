@@ -1,7 +1,7 @@
 package project1.board;
 
 public class User {
-    private int id;
+    private int userId;
     private String loginId;
     private String password;
     private String nickName;
@@ -20,8 +20,8 @@ public class User {
         this.nickName = nickName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setLoginId(String loginId) {
@@ -36,8 +36,8 @@ public class User {
         this.nickName = nickName;
     }
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
     public String getLoginId() {
